@@ -12,6 +12,8 @@ public interface EmployeeService {
 	List<EmployeeDto> searchEmployee(String employeeName);
 	
 	EmployeeRecognitionDto getRecognitions(int employeeId);
-
 	int getEmployeeIdByEmail(String email);
+
+	List<EmployeeDto> getAllEmployees();
 }
+

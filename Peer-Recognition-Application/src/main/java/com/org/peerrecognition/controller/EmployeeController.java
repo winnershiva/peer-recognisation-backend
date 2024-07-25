@@ -2,6 +2,7 @@ package com.org.peerrecognition.controller;
 
 import java.util.List;
 
+import com.org.peerrecognition.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,5 +42,10 @@ public class EmployeeController {
 		EmployeeRecognitionDto badgesEarned = this.employeeService.getRecognitions(receiverId);
 		return new ResponseEntity<>(badgesEarned, HttpStatus.OK);
 		
+	}
+	@GetMapping("/getAllEmployeeDetails")
+	public ResponseEntity<List<EmployeeDto>> getAllEmployees() {
+		List<EmployeeDto> employees = employeeService.getAllEmployees();
+		return new ResponseEntity<>(employees, HttpStatus.OK);
 	}
 }

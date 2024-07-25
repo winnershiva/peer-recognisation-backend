@@ -98,6 +98,15 @@ public class EmployeeServiceImpl implements EmployeeService, UserDetailsService 
 
 		return employee.get().getEmployeeId();
 	}
+	@Override
+	public List<EmployeeDto> getAllEmployees() {
+		List<Employee> employees = this.employeeRepo.findAll();
+		List<EmployeeDto> employeeDtos = employees
+				.stream()
+				.map(employee -> this.employeeToDto(employee))
+				.collect(Collectors.toList());
+		return employeeDtos;
+	}
 
 	public RecognitionDto recognitionToDto(Recognition recognition)
 	{
