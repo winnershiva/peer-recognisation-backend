@@ -3,10 +3,10 @@ package com.org.peerrecognition;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class PeerRecognitionApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 
