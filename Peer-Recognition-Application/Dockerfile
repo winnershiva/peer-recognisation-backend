@@ -29,4 +29,4 @@ EXPOSE 9096
 # Run the application
 CMD ["java", "-jar", "app.jar"]
 
-#test commit
+
