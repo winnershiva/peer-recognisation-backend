@@ -1,0 +1,23 @@
+steps:
+  # Step 1: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/lloyds-hack-grp-13/peer-backend-service', '.']
+
+  # Step 2: Push the Docker image to Google Container Registry (GCR)
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/lloyds-hack-grp-13/peer-backend-service']
+
+  # Step 3: Deploy the Docker image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args: ['run', 'deploy', 'backend-service',
+           '--image', 'gcr.io/lloyds-hack-grp-13/peer-backend-service',
+           '--platform', 'managed',
+           '--region', 'us-central1',
+           '--allow-unauthenticated',
+           '--port', '8080']
+
+timeout: '1200s'  # Optional: set timeout to 20 minutes
+
+substitutions:
+  _REGION: us-central1
