@@ -21,12 +21,12 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the jar file from the build stage
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/*.jar Peer-Recognition-Application.jar
 
 # Expose the port the application will run on
 EXPOSE 9096
 
 # Run the application
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "Peer-Recognition-Application.jar"]
 
-#test commit
+
